@@ -37,11 +37,15 @@ Transform your compute power into real earnings
    ```bash
    npm install
    ```
-3. Register or Login to get Token
+3. Register or Login to get Access Token
+   ```bash
+   npm run register
+   ```
+4. Create Extension ID for new account
    ```bash
    npm run setup
    ```
-4. Run the bot:
+5. Run the bot:
    ```bash
    npm run start
    ```
