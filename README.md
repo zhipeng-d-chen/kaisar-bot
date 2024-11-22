@@ -22,7 +22,7 @@ Transform your compute power into real earnings
 - **if you already have account you can create file manually**
 - `token.txt`: Stores access_tokens each line 1 account.
 - `id.txt`: Stores Extension IDs each line 1 account.
--
+- `proxy.txt`: stores Proxy url format `http://user:pass@ip:port` each line 1 proxy.
 - **if you register using cli, file above auto filled, just fill `email.txt` with your email.**
 - `email.txt`: Store email account 1 line 1 account.
 
