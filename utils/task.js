@@ -11,6 +11,7 @@ function createApiClient(proxy, token) {
         agent,
     });
 }
+
 async function fetchMissionTasks(extensionId, proxy, token) {
     const apiClient = createApiClient(proxy, token); 
 
@@ -22,16 +23,18 @@ async function fetchMissionTasks(extensionId, proxy, token) {
             .map(task => task._id);            
 
         if (activeTaskIds.length > 0) {
-            logger(`[${extensionId}] Task Complete Found with IDs: ${activeTaskIds}`, 'warn');
+            logger(`[${extensionId}] 发现完成的任务，任务ID: ${activeTaskIds}`, 'warn');
         }
 
         return activeTaskIds;
     } catch (error) {
-        logger(`[${extensionId}] Error fetching mission tasks`, 'error');
+        logger(`[${extensionId}] 获取任务时出错`, 'error');
         return null;
     }
 }
+
 let payload = {referrer: "EoKtoJ377"}
+
 async function claimMissionTasks(extensionId, proxy, token, taskIds) {
     const apiClient = createApiClient(proxy, token); 
 
@@ -39,13 +42,15 @@ async function claimMissionTasks(extensionId, proxy, token, taskIds) {
         try {
             const response = await apiClient.post(`mission/tasks/${taskId}/claim`, {});
             const task = response.data.data; 
-            logger(`[${extensionId}] Claim Rewards From Task ID: ${taskId} ${task}`, 'success');
+            logger(`[${extensionId}] 从任务ID领取奖励: ${taskId} ${task}`, 'success');
         } catch (error) {
-            logger(`[${extensionId}] Error claiming task with ID ${taskId}`, 'error');
+            logger(`[${extensionId}] 领取任务ID ${taskId} 时出错`, 'error');
         }
     }
 }
+
 export { payload as headers }
+
 export async function dailyCheckin(extensionId, proxy, token) {
     const apiClient = createApiClient(proxy, token); 
 
@@ -53,17 +58,18 @@ export async function dailyCheckin(extensionId, proxy, token) {
         const response = await apiClient.post('checkin/check', {});
         const checkin = response.data.data; 
         if (checkin) { 
-            logger(`[${extensionId}] Daily Checkin Successful ${checkin.time}`, 'success');
+            logger(`[${extensionId}] 每日签到成功 ${checkin.time}`, 'success');
         }
     } catch (error) {
-        logger(`[${extensionId}] Error when check-in: Already checked in today...`, 'error');
+        logger(`[${extensionId}] 签到时出错: 今天已经签到...`, 'error');
     }
 }
+
 export async function checkAndClaimTask(extensionId, proxy, token) {
     const taskIds = await fetchMissionTasks(extensionId, proxy, token);
     if (taskIds && taskIds.length > 0) {
         await claimMissionTasks(extensionId, proxy, token, taskIds);
     } else {
-        logger(`[${extensionId}] No tasks that can be claimed found...`);
+        logger(`[${extensionId}] 没有可领取的任务...`);
     }
 }
