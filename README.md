@@ -1,23 +1,21 @@
-好的，这里是你提供的文档的汉化版本：
-
-# 凯撒网络
+# kaisarnetwork脚本
 
 你的计算，你的货币
 将你的计算能力转化为实际收益
 
 ![banner](image.png)
 
-# 凯撒 Beta CLI 模式
+# kaisarnetwork Beta CLI 模式
 
 ## 功能
 
 - 支持多个账户。
-- 支持代理。
+- 支持使用代理。
 
-## 要求
+## 环境要求
 
 - Node.js 20+
-- 通过 `npm install` 安装的依赖项
+- 通过 `npm install` 安装依赖项
 
 ## 文件
 
@@ -32,14 +30,14 @@
 
 1. 克隆仓库：
    ```bash
-   git clone https://github.com/Zlkcyber/kaisar-bot.git
-   cd kaisar-bot
+   git clone https://github.com/Gzgod/kaisar.git
+   cd kaisar
    ```
 2. 安装依赖：
    ```bash
    npm install
    ```
-3. 注册或登录以获取访问令牌：
+3. 注册或登录来获取token：
    ```bash
    npm run register
    ```
