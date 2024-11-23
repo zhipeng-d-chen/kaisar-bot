@@ -30,10 +30,15 @@
    git clone https://github.com/Gzgod/kaisar.git
    cd kaisar
    ```
-2. 安装依赖：
+2. 安装依赖（如果安装一直转圈可以使用国内镜像）：
    ```bash
    npm install
    ```
+   国内镜像：
+      ```bash
+      npm install -g cnpm --registry=https://registry.npmmirror.com
+      cnpm install
+         ```
 3. 注册或登录来获取token：
    ```bash
    npm run register
