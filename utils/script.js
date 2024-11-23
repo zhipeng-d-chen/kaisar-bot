@@ -1,4 +1,5 @@
 import { logger } from './logger.js';
+
 async function getMiningData(apiClient, extensionId) {
     try {
         const response = await apiClient.get('/mining/current', {
@@ -12,12 +13,12 @@ async function getMiningData(apiClient, extensionId) {
             updateMiningPoint(extensionId, miningData); 
 
             if (miningData.ended === 1) {
-                logger(`[${extensionId}] Mining has ended. Proceeding to claim mining points.`, 'debug');
+                logger(`[${extensionId}] 挖矿已结束。正在领取挖矿点。`, 'debug');
                 await claim(apiClient, extensionId);
             }
         }
     } catch (error) {
-        logger(`[${extensionId}] Error fetching mining data`, 'error');
+        logger(`[${extensionId}] 获取挖矿数据时出错`, 'error');
     }
 }
 
@@ -26,7 +27,7 @@ function updateMiningPoint(extensionId, miningData) {
     const points = elapsedTimeInHours * miningData.hourly;
     const miningPoint = Math.max(0, points);
 
-    logger(`[${extensionId}] Points: ${points}, MiningPoints: ${miningPoint}, ElapsedTimeInHours: ${elapsedTimeInHours}`, 'warn');
+    logger(`[${extensionId}] 积分: ${points}, 挖矿积分: ${miningPoint}, 已用时间（小时）: ${elapsedTimeInHours}`, 'warn');
 }
 
 function updateProgress(extensionId, miningData) {
@@ -36,18 +37,18 @@ function updateProgress(extensionId, miningData) {
     const remainingTime = Math.max(0, endTime - currentTime); 
 
     logger(
-        `[${extensionId}] Progress: endTime: ${endTime}, currentTime: ${currentTime}, remainingTime: ${remainingTime}`, 'warn'
+        `[${extensionId}] 进度: 结束时间: ${endTime}, 当前时间: ${currentTime}, 剩余时间: ${remainingTime}`, 'warn'
     );
 }
 
-
 async function claim(apiClient, extensionId) {
     try {
-        logger(`[${extensionId}] Claiming mining points...`);
+        logger(`[${extensionId}] 正在领取挖矿积分...`);
         const { data } = await apiClient.post('/mining/claim', { extension: extensionId });
-        logger(`[${extensionId}] Claimed successfully:`, 'success', data);
+        logger(`[${extensionId}] 成功领取:`, 'success', data);
     } catch (error) {
-        logger(`[${extensionId}] Error during claim:`, 'error', error.message || error);
+        logger(`[${extensionId}] 领取时出错:`, 'error', error.message || error);
     }
 }
+
 export { getMiningData };
