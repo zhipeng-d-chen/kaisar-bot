@@ -38,7 +38,6 @@
       ```bash
       npm install -g cnpm --registry=https://registry.npmmirror.com
       cnpm install
-         ```
 3. 注册或登录来获取token：
    ```bash
    npm run register
