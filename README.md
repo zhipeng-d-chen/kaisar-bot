@@ -1,8 +1,5 @@
 # kaisarnetwork脚本
 
-你的计算，你的货币
-将你的计算能力转化为实际收益
-
 ![banner](image.png)
 
 # kaisarnetwork Beta CLI 模式
