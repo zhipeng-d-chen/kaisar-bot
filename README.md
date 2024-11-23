@@ -27,8 +27,8 @@
 
 1. 克隆仓库：
    ```bash
-   git clone https://github.com/Gzgod/kaisar.git
-   cd kaisar
+   git clone https://github.com/Gzgod/kaisar-bot.git
+   cd kaisar-bot
    ```
 2. 安装依赖（如果安装一直转圈可以使用国内镜像）：
    ```bash
