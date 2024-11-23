@@ -1,51 +1,55 @@
-# KAISAR NETWORK
+好的，这里是你提供的文档的汉化版本：
 
-Your compute, your currency
-Transform your compute power into real earnings
+# 凯撒网络
+
+你的计算，你的货币
+将你的计算能力转化为实际收益
 
 ![banner](image.png)
 
-# Kaisar Beta Cli Mode
+# 凯撒 Beta CLI 模式
 
-## Features
+## 功能
 
-- Support Multy accounts.
-- Support Proxy.
+- 支持多个账户。
+- 支持代理。
 
-## Requirements
+## 要求
 
 - Node.js 20+
-- Dependencies installed via `npm install`
+- 通过 `npm install` 安装的依赖项
 
-## Files
+## 文件
 
-- **if you already have account you can create file manually**
-- `tokens.txt`: Stores access_tokens each line 1 account.
-- `id.txt`: Stores Extension IDs each line 1 account.
-- `proxy.txt`: stores Proxy url format `http://user:pass@ip:port` each line 1 proxy.
-- **if you register using cli, file above auto filled, just fill `email.txt` with your email.**
-- `emails.txt`: Store email account 1 line 1 account.
+- **如果你已经有账户，可以手动创建文件**
+- `tokens.txt`：存储 access_tokens，每行一个账户。
+- `id.txt`：存储扩展 ID，每行一个账户。
+- `proxy.txt`：存储代理 URL 格式 `http://user:pass@ip:port`，每行一个代理。
+- **如果你使用 CLI 注册，上述文件会自动填充，只需在 `email.txt` 中填写你的电子邮件。**
+- `emails.txt`：存储电子邮件账户，每行一个账户。
 
-## Usage
+## 使用方法
 
-1. Clone the repository:
+1. 克隆仓库：
    ```bash
    git clone https://github.com/Zlkcyber/kaisar-bot.git
    cd kaisar-bot
    ```
-2. install dependencies:
+2. 安装依赖：
    ```bash
    npm install
    ```
-3. Register or Login to get Access Token
+3. 注册或登录以获取访问令牌：
    ```bash
    npm run register
    ```
-4. Create Extension ID for new account
+4. 为新账户创建扩展 ID：
    ```bash
    npm run setup
    ```
-5. Run the bot:
+5. 运行机器人：
    ```bash
    npm run start
    ```
+
+希望这能满足你的需求。如果你有其他问题或需要进一步的帮助，请告诉我！
