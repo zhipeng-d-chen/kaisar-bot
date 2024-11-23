@@ -6,4 +6,7 @@ export const banner = `
    ███████╗███████╗██║  ██╗    ╚██████╗   ██║   ██████╔╝███████╗██║  ██║
    ╚══════╝╚══════╝╚═╝  ╚═╝     ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝
             Running Kaisar Node BETA EXTENSION CLI Version                
-                  t.me/zlkcyber *** github.com/zlkcyber                   `
+                  原作者： github.com/zlkcyber    
+                  汉化by雪糕战神推特@Hy78516012
+                  
+                  `
