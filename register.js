@@ -1,4 +1,5 @@
 import { axios, banner, headers, readline, logger, fs } from './utils/exporter.js';
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -34,19 +35,20 @@ async function loginUser(email, password) {
     }
 }
 
-async function registerUser(email, password) {
+async function registerUser(email, password, referrer) {
     try {
         const response = await axios.post(
             'https://zero-api.kaisar.io/auth/register',
             {
-                ...headers,
                 email: email,
                 password: password,
-            }
+                referrer: referrer  
+            },
+            { headers: { 'Content-Type': 'application/json' } }
         );
         if (response.data) {
             console.log(`注册成功 ${email}:`, response.data);
-            console.log("检查您的收件箱以确认您的电子邮件...\n然后重新运行此脚本以登录...")
+            console.log("检查您的收件箱以确认您的电子邮件...\n然后重新运行此脚本以登录...");
         } else {
             console.error(`注册失败 ${email}:`, response.data.message);
         }
@@ -66,11 +68,13 @@ async function processAllUsers() {
         const emailList = fs.readFileSync('emails.txt', 'utf-8').split('\n').filter(email => email.trim() !== '');
 
         rl.question("输入您的账户密码: ", async (password) => {
-            for (const email of emailList) {
-                await new Promise(resolve => setTimeout(resolve, 1000)); 
-                await registerUser(email, password); 
-            }
-            rl.close();
+            rl.question("输入您的邀请码: ", async (referrer) => {
+                for (const email of emailList) {
+                    await new Promise(resolve => setTimeout(resolve, 1000)); 
+                    await registerUser(email, password, referrer); 
+                }
+                rl.close();
+            });
         });
 
     } catch (error) {
