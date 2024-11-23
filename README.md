@@ -38,7 +38,7 @@
       ```bash
       npm install -g cnpm --registry=https://registry.npmmirror.com
       cnpm install
-3. 注册或登录来获取token：
+3. 注册或登录来获取token（把要登录或者注册的邮箱文件放到email.txt里）：
    ```bash
    npm run register
    ```
